@@ -1,8 +1,8 @@
 # 期中考
 >
->學號：1234567
+>學號：112111234
 ><br />
->姓名：王小明
+>姓名：阮陳家興
 ><br />
 >作業撰寫時間：180 (mins，包含程式撰寫時間)
 ><br />
@@ -55,21 +55,57 @@ public void mt_getResult(){
 a. 小題
 
 Ans
+```py
+#a
+map = [[0 for _ in range(10)] for _ in range(10)]
+```
 
 b. 小題
 
 Ans
+```py
+rowMap = [0]*10
+```
 
 c. 小題
 
 Ans
-
+```py
+rowMap = [0, 7, 13, 28, 44, 62, 74, 75, 87, 90]
+```
 
 d. 小題
 
 Ans
-
+```py
+for index in rowMap:
+    row = index // 10
+    col = index % 10
+    map[row][col] = "*"
+```
 
 e. 小題
 
 Ans
+```py
+def is_valid(x,y):
+    return 0 <= x < 10 and 0 <= y < 10
+   
+
+for i in range(10):
+        for j in range (10):
+            if map[i][j] == '*':
+                for dy in [-1, 0, 1]:
+                    for dx in [-1, 0, 1]:
+                        ni, nj = i + dx, j + dy 
+                        if is_valid(ni,nj) and map[ni][nj] != '*':
+                            map[ni][nj] += 1
+for i in range(10):
+    for j in range(10):
+        if map[row][col] == '0':
+            map[row][col] = ' '                      
+
+for row in map:                        
+    print(" | ".join(str(cell) for cell in row))
+    print("-" * (4 * 10 - 1))
+```
